@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <!-- Bootstrap CSS -->
+     <link rel="stylesheet" href="css/bootstrap.min.css">
+
+     <!-- CSS -->
+     <link rel="stylesheet" href="css/home.css">
+     <title>HomeSL</title>
+    <style>
+        #canvasSection{
+           position:fixed;
+        }
+        canvas{
+            position:absolute;
+            left:0;
+            top:0;
+            z-index:-1;
+            background: white;
+    
+        }
+
+    </style>
+</head>
+
+<body style="font-family: Consola;">
+    <canvas id = "canvasSection">
+        
+    </canvas>
+    
+    <script>
+        var canvas = document.getElementById('canvasSection');
+        var ctx = canvas.getContext('2d');
+
+        var width = canvas.width = window.innerWidth;
+        var height = canvas.height = window.innerHeight;
+
+        function cusrandom(mini,maxi){
+            return Math.floor(Math.random()*(maxi-mini)) + mini;
+        }
+
+        function makeball(){
+            var x = cusrandom(0,width);
+            var y = cusrandom(0,height);
+            var spx = cusrandom(1,7);
+            var spy = cusrandom(1,7);
+            var r = cusrandom(15,20);
+            var c = "rgb(" + cusrandom(0,255) + "," + cusrandom(0,255) + "," + cusrandom(0,255) + ")";
+            var ball = {x,y,spx,spy,r,c};
+            return ball; 
+        }
+
+        var balls = [];
+        function drawballs(ball){
+            ctx.beginPath();
+            ctx.fillStyle = ball.c;
+            ctx.arc(ball.x,ball.y,ball.r,0,2*Math.PI);
+            ctx.fill();
+            
+            if (ball.x+ball.spx < 0 || ball.x+ball.spx > width){
+                ball.spx = -ball.spx;
+            }
+
+            if (ball.y+ball.spy < 0 || ball.y+ball.spy > height){
+                ball.spy = -ball.spy;
+            }
+            
+            
+            ball.x += ball.spx;
+            ball.y += ball.spy;
+        }
+
+        function draw(){
+            ctx.clearRect(0,0,width,height);
+            
+            for(var i = 0; i < balls.length; i++){
+                drawballs(balls[i]);
+            }
+        }
+
+        function init(){
+            for(var i = 0; i < 50; i++){
+                balls.push(makeball());
+            }
+        }
+        init();
+        setInterval(draw, 10);
+
+    </script>
+
+<nav class="navbar fixed-top navbar-expand-lg navbar-light " style="background-color:rgba(204, 235, 255,0.7);">
+    <div class="container">
+            <a class="navbar-brand" href="home.html" style="font-family: Consolas;">MySL</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse nav justify-content-end" id="navbarNavAltMarkup">
+              <div class="navbar-nav" >
+                <a class="nav-item nav-link active" href="home.html">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="mypackage.html">My Package</a>
+                <a class="nav-item nav-link" href="promo.html">Promo</a>
+                <a class="nav-item nav-link" href="feedback.html">Feedback</a>
+                <a class="nav-item nav-link" href="login.html">Signout</a>
+              </div>
+            </div>
+    </div>
+  </nav>
+  
+  <div class="jumbotron jumbotron-fluid " style="background: none;">
+        <div class="container text-center">
+         <section class="wrapper">
+                <img class="ball" src="asset/login.png" ></div>
+          </section>
+          <h1 class="display-4" style="text-align: center; font-family: Consolas;" >SL Number : <span id="hasil"></span>
+            <script>
+              document.getElementById("hasil").innerHTML = 
+              localStorage.getItem("slnilai");
+            </script>
+          </h1>
+          <p class="lead" style="text-align: center; font-family: Consolas;">Your Balance : Rp40.000</p>
+          <p class="lead" style="text-align: center; font-family: Consolas;">Your Package : 5G Non Stop</p>
+        </div>
+  </div>
+
+  
+  <footer style="background-color:rgba(204, 235, 255,0.7); color: black;">
+        <div class="container">
+          <div class="row">
+            
+            <div class="col-lg-4 col-md-6">
+              <h3>SL Asiata</h3>
+              <ul class="list-unstyled three-column"> 
+                <li>Home</li>
+                <li>My Package</li>
+                <li>Promo</li>
+                <li>Feedback</li>
+                <li>Portfolio</li>
+                <li>Contact</li>
+              </ul>
+              <ul class="list-unstyled socila-list">
+                <li><img src="sosmed/fb.png" alt="" style="width: 48px; height: 48px;"/></li>
+                <li><img src="sosmed/gmail.png" alt="" style="width: 48px; height: 48px;"/></li>
+                <li><img src="sosmed/yahoo.png" alt="" style="width: 48px; height: 48px;"/></li>
+                <li><img src="sosmed/ig.png" alt=""style="width: 48px; height: 48px;"  /></li>
+                <li><img src="sosmed/twitter.jpg" alt="" style="width: 48px; height: 48px;"/></li>
+                <li><img src="sosmed/in.png" alt="" style="width: 48px; height: 48px;"/></li>
+              </ul>
+            </div>
+            
+            <div class="col-lg-4 col-md-6">
+              <h3>Latest Articles</h3>
+              <div class="media">
+                <a href="#" class="pull-left">
+                  <img src="Artikel/5g.jpg" alt="" class="media-object" style="width: 64px; height: 64px; border-radius: 35px;"/>
+                </a>
+                <div class="media-body">
+                  <h4 class="media-heading">5G+ Technology</h4>
+                  <p>One of the most latest Technology</p>
+                </div>
+              </div>
+              
+              <div class="media">
+                <a href="#" class="pull-left">
+                  <img src="Artikel/cyber1.jpg" alt="" class="media-object" style="width: 64px; height: 64px; border-radius: 35px;" />
+                </a>
+                <div class="media-body">
+                  <h4 class="media-heading">Beware with Cyber Crime</h4>
+                  <p>Most Goverment are overwhelmed to track Cyber Crime </p>
+                </div>
+              </div>
+              
+              <div class="media">
+                <a href="#" class="pull-left">
+                  <img src="Artikel/iphone11.jpg" alt="" class="media-object" style="width: 64px; height: 64px; border-radius: 35px;" />
+                </a>
+                <div class="media-body">
+                  <h4 class="media-heading">Giveaway Iphone 11</h4>
+                  <p>Get ready for the one of the Prestige phone of the year</p>
+                </div>
+              </div>
+              
+            </div>
+            
+            <div class="col-lg-4">
+                <h3>Our Location</h3>
+                <div class="img-hover-zoom img-hover-zoom--point-zoom">
+                    <img src="artikel/slmap.png">
+                </div>
+            </div>
+            
+          </div>
+        </div>
+        <div class="copyright text-center">
+          Copyright &copy; 2019 <span>SL Asiata Corp</span>
+        </div>
+      </footer>
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="js/bootstrap.min.js" ></script>
+
+<!-- For Anime JS -->
+<script src="js/anime.min.js"></script>
+<script src="js/home.js"></script>
+
+</body>
+</html>

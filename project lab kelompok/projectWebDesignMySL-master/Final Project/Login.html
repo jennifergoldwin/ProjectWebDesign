@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="css/login.css">
+    <script src="js/login.js"></script>
+ 
+</head>
+<body>
+    <div class="login-form">
+        <div class="image-container">
+            <img src="asset/login.png" alt="">
+        </div>
+        <div class="error"></div>
+        <form action="home.html" id="form">
+            <h1 class="judul">SL Provider Login</h1>
+            <div class="text">
+                <label>SL number :</label>
+                <input type="text" name="" maxlength="12" value="" placeholder="Enter Your SL Number" id="noSL" required onkeypress="isInputNumber(event)">
+            </div>
+            <div class="text">
+                <label>password : </label>
+                <input type="password" name="" maxlength="25" value="" placeholder="Enter Your password" id="password" required>
+            </div>
+            <input class="button" type="submit" value="Login" id="button">
+        </form>
+    </div>
+   <script src="js/login.js"></script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+body{
+    
+    background :  url("../asset/mySL.gif");
+    background-size: cover;
+    color: black;
+}   
+
+
+.login-form{
+    width: 70%;
+    max-width: 700px;
+    background: blanchedalmond;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 30px 40px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    text-align: center;
+    font-family: sans-serif;
+    opacity: .8;
+}
+
+.login-form{
+    margin-top: 10px;
+    font-weight: 200;
+
+}
+
+/* .image-container{
+    width: 50%;
+    left: 50%;
+    transform: translate(50%,-70%);
+    transition: all 1s;
+} */
+
+.image-container img{
+    width:  140px;
+    height: 140px;
+    margin-top: -90px;
+    padding-left: 3px;
+    transition: all 1s;
+}
+
+.image-container img:hover{
+    transform: translate(0%,20%);
+    transition: all 1s;
+}
+
+.text{
+    border: 1px solid gray;
+    margin : 8px 0;
+    padding: 12px 18px;
+    border-radius: 9px;
+}
+
+.text label {
+    display: block;
+    text-align: left;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.text input{
+    width: 100%;
+    border: none;
+    background: none;
+    outline: none;
+    font-size: 18px;
+    margin-top: 8px;
+}
+
+.button {
+    outline: none;
+    display: block;
+    background: #1c8adb;;
+    padding: 10px 0;
+    width: 80%;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-size: 25px;
+    color: white;
+    transition: all 1s;
+    margin-left: auto;  
+    margin-right: auto;
+}
+
+.button:hover {
+    color: black;
+    background : #2196f3;
+    box-shadow: 0 0 10px #2196f3, 0 0 40px #2196f3 , 0 0 80px #2196f3;
+}
+
+.judul {
+    transition: all 1s;
+}
+
+.judul:hover{
+    color: brown;
+    font-size: 35px;
+    transition: all 1s;
+}
+
+@media screen and (max-width: 1024px) {
+    /* @media screen and (max-width: 430px) { */
+   img{
+       width: 70px;
+       height: 70px;
+   }
+
+   .login-form{
+    width: 70%;
+    max-width: 700px;
+    background: blanchedalmond;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 30px 40px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    text-align: center;
+    font-family: sans-serif;
+    opacity: .8;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+    /* @media screen and (max-width: 430px) { */
+   img{
+       width: 70px;
+       height: 70px;
+   }
+
+   .login-form{
+    width: 70%;
+    max-width: 700px;
+    background: blanchedalmond;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 30px 40px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    text-align: center;
+    font-family: sans-serif;
+    opacity: .8;
+    }
+
+}
